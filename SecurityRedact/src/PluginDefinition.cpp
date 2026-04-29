@@ -103,11 +103,21 @@ static const PatternDef PATTERN_DEFS[] = {
     { "Secret Key",
       R"((?:secret[_\-]?key|secretkey|client[_\-]?secret)\s*[=:]\s*["']?([A-Za-z0-9\-_.+/=]{8,}))", 1 },
 
+    { "Encryption Key",
+      R"((?:encryption[_\-]?key|encrypt[_\-]?key)\s*[=:]\s*["']?([^\s"'\r\n]{8,})["']?)", 1 },
+
     { "Token",
       R"((?:token|access[_\-]?token|auth[_\-]?token|bearer[_\-]?token|refresh[_\-]?token|id[_\-]?token)\s*[=:]\s*["']?([A-Za-z0-9\-_.+/=]{8,}))", 1 },
 
     { "Private Key",
       R"((?:private[_\-]?key|priv[_\-]?key)\s*[=:]\s*["']?([A-Za-z0-9\-_.+/=]{8,}))", 1 },
+
+    // YAML/TOML: secret: "vollständiger Wert in Anführungszeichen"
+    { "Secret (quoted value)",
+      R"((?:^|\s)secret\s*:\s*"([^"]{4,})")", 1 },
+
+    { "Secret (single-quoted value)",
+      R"((?:^|\s)secret\s*:\s*'([^']{4,})')", 1 },
 
     { "Generic Secret (high-entropy)",
       R"((?:secret|credential|auth)\s*[=:"']\s*["']?([A-Za-z0-9+/=]{32,}))", 1 },
