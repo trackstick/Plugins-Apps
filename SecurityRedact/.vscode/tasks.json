@@ -2,9 +2,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "🔨 Build SecurityRedact.dll",
+            "label": "Build SecurityRedact.dll",
             "type": "shell",
-            "command": "${workspaceFolder}\\build.bat",
+            "command": "cmd.exe",
+            "args": ["/c", "${workspaceFolder}\\build.bat"],
             "group": {
                 "kind": "build",
                 "isDefault": true
