@@ -1,0 +1,54 @@
+//
+// SecurityRedact.rc
+// Versionsinformationen für die DLL
+//
+// ANLEITUNG:
+//   1. VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH anpassen
+//   2. Ebenso den String unter "FileVersion" und "ProductVersion"
+//   3. build.bat neu ausführen
+//
+// Beispiel für Version 1.2.0:
+//   #define VERSION_MAJOR 1
+//   #define VERSION_MINOR 2
+//   #define VERSION_PATCH 0
+//   VALUE "FileVersion",    "1.2.0"
+//   VALUE "ProductVersion", "1.2.0"
+//
+
+#include <windows.h>
+
+// ── Versionsnummern hier eintragen ────────────────────────────────────────────
+#define VERSION_MAJOR   1
+#define VERSION_MINOR   0
+#define VERSION_PATCH   0
+#define VERSION_BUILD   0
+// ─────────────────────────────────────────────────────────────────────────────
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION     VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH, VERSION_BUILD
+PRODUCTVERSION  VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH, VERSION_BUILD
+FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+FILEFLAGS       0
+FILEOS          VOS_NT_WINDOWS32
+FILETYPE        VFT_DLL
+FILESUBTYPE     VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040704B0"
+        BEGIN
+            VALUE "CompanyName",      "Markus Weigl"
+            VALUE "FileDescription",  "SecurityRedact – Notepad++ Plugin"
+            VALUE "FileVersion",      "1.0.0"
+            VALUE "InternalName",     "SecurityRedact"
+            VALUE "LegalCopyright",   "Markus Weigl"
+            VALUE "OriginalFilename", "SecurityRedact.dll"
+            VALUE "ProductName",      "SecurityRedact"
+            VALUE "ProductVersion",   "1.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0407, 0x04B0
+    END
+END
